@@ -1,3 +1,3 @@
 # Kei-dlp
 A simple batch script made by OkeiDokei to make using YT-dlp easier.
-![Terminal Window](https://imgur.com/a/pkrgxZU)
+![Terminal Window](images/WindowsTerminal.png)
