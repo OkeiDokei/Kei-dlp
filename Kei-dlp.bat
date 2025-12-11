@@ -1,5 +1,5 @@
 @echo off
-::V5.0
+set Version=V5.1
 setlocal enabledelayedexpansion
 
 ::Rest In Peace variable names boobs and egg
@@ -103,7 +103,7 @@ CHOICE /C yn /M "Seams like you haven't ran Kei-dlp before would you like to ope
 :start
 	cls
 	color 07
-	echo=             ❥︎ Kei-dlp! V5.0
+	echo=             ❥︎ Kei-dlp! %Version%
 	echo= "Wizards Cast Meatballs Edition! (∩๏﹏๏)⊃━☆ﾟ.*"
 	echo= ------------------------------------------
 	echo= 1.Start Script
@@ -202,16 +202,15 @@ if "%defvideo%"=="" (
 		set cookiebool=Yes
 	)
 	
-		break>"%HOMEDRIVE%%HOMEPATH%\sKeipts\Kei-dlp\Settings.txt"
-		break>"%HOMEDRIVE%%HOMEPATH%\sKeipts\Kei-dlp\Settings.txt"
-		(echo=defaultmusic=%defaultmusic%) >> %HOMEDRIVE%%HOMEPATH%\sKeipts\Kei-dlp\Settings.txt
-		(echo=defaultvideos=%defaultvideos%) >> %HOMEDRIVE%%HOMEPATH%\sKeipts\Kei-dlp\Settings.txt
-	    (echo=cookies=%cookiecode%%browser%) >> %HOMEDRIVE%%HOMEPATH%\sKeipts\Kei-dlp\Settings.txt
-		(echo=setup=%setup%) >> %HOMEDRIVE%%HOMEPATH%\sKeipts\Kei-dlp\Settings.txt
+        break>"%HOMEDRIVE%%HOMEPATH%\sKeipts\Kei-dlp\Settings.txt"
+			(echo=defaultmusic=!defmusic!) >> %HOMEDRIVE%%HOMEPATH%\sKeipts\Kei-dlp\Settings.txt
+			(echo=defaultvideos=!defvideo!) >> %HOMEDRIVE%%HOMEPATH%\sKeipts\Kei-dlp\Settings.txt
+			(echo=cookies=%cookiecode%%browser%) >> %HOMEDRIVE%%HOMEPATH%\sKeipts\Kei-dlp\Settings.txt
+			(echo=setup=true) >> %HOMEDRIVE%%HOMEPATH%\sKeipts\Kei-dlp\Settings.txt
 	
-	for /f "tokens=1,2,3,4 delims==" %%A in (%settingsfile%) do (
-		set /a counter+=1
-		set "settings[!counter!]=%%B
+		for /f "tokens=1,2,3,4 delims==" %%A in (%settingsfile%) do (
+			set /a counter+=1
+			set "settings[!counter!]=%%B
 	)
 	timeout 1 >nul
 		set settings[
